@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Primer Examen</title>
+        <link rel="stylesheet" type="text/css" href="examen.css">
+        <script src="examen.js"></script>
+    </head>
+    <body>
+        <form name="frmExamen">
+            <table id="Registro" border="0"  cellspacing="10">
+                <th id="Encabezado" colspan="3">REGISTRO DE JUSTIFICACION DE MARCAS                     
+                </th>
+                <tr>
+                    <td>  Fecha: </td>
+                    <td colspan="2"> <p id="Fecha"><script>document.write(Fecha())</script></p></td>
+                    
+                </tr>
+                <tr>
+                    <td>  Nombre: </td>
+                    <td><input type="text" id="txtNombre"></td>
+                    <td>  Cedula: <input type="text" id="txtCedula"></td>
+                </tr>
+                <tr>
+                    <td>  Justificacion: </td>
+                    <td colspan="2">
+                        <select id="JUS" name="cboJUS" placeholder="Seleccione" onchange="ValidarSeleccionado(this.value)" >
+								<option value="0">- Seleccione uno -</option>
+								<script>document.write(cargarCombo())</script>       
+						</select>
+                        </br>
+                        <div id="idCheck" style='display:none;'>
+                            <input type="checkbox" id = "idchkRangoFechas" name="chkRangoFechas" onchange="ValidarSeleccionado(21)">Seleccionar Rango de Fechas<br>
+                        </div>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td> Fecha Justificar: </td>
+                    <td><input type="date" id="dtpFechaInicial" ></td>
+                    <td><input type="date" id="dtpFechaFinal" style='display:none;'></td>
+                </tr>
+                <tr>
+                    <td valign="top"> Marca Omitida: </td>
+                    <td colspan="2">
+                        <input type="radio" id="rdbIngreso" name="Marca"  value="Ingreso" checked onchange="ValidarSeleccionadoRadioIngreso_Salida()">Ingreso
+                        </br>
+                        <input type="radio" id="rdbSalida" name="Marca"  value="Salida" onchange="ValidarSeleccionadoRadioIngreso_Salida()">Salida
+                        </br>
+                        <input type="radio" id="rdbAmbas" name="Marca" value="Ambas" onchange="ValidarSeleccionadoRadio()">Ambas
+                        </br>
+                        </br>
+                        </br>
+                        <div id="SelecAmbas" style='display:none;'>
+                            <Font Color ="Red">Adjuntar Comprobante
+                            </Font>
+                            <input type="file" id="Subir" align = "left" onchange="nombre(this.value)"/>                               
+                        </div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"> Justificacion </br>Detallada</td>
+                    <td colspan="2"><textarea rows="4" cols="50" name="Descripcion" id="DescripcionId" maxlength="50" ></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <input type="reset" value="Limpiar" onclick="Limpiar();"> <input type="button" id="btnRegistrar" value="Registrar" onclick="validarTodo(this.form);"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
